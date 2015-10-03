@@ -19,31 +19,115 @@
 -->
 <html>
     <head>
-        <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
         <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <!-- temporarily moved to head whilst we develop app...-->
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="js/trip.js"></script>
+        <title>Trip Notes</title>
     </head>
     <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-        </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+        
+    <!-- login -->
+	<div data-role="page" data-dialog="true" id="login">
+		<div data-role="header">
+	    <h3>Bowlful</h3>
+		</div><!-- /header -->
+        	  <div role="main" class="ui-content">
+        <div data-role="fieldcontain" class="ui-hide-label">
+            <form method="post" action="demoform.asp">
+                <div class="ui-field-contain">
+                    <label for="email"></label>
+                <input type="email" name="email" id="email" placeholder="Your email..">
+      </div>
+      <input type="submit" data-inline="true" value="Submit">
+    </form>
+  </div> 
+                    </div>
+	</div><!-- /login -->
+        
+  <!-- home -->
+	<div data-role="page" id="home">
+		<div data-role="header">
+	    <h3>Bowlful</h3>
+		</div><!-- /header -->
+	  <div role="main" class="ui-content">
+			<p><a href="#home" data-transition="slidedown">info</a></p>
+		<!-- listview example -->
+		<div>
+
+				<ul data-role="listview" data-inset="true">
+				  <li data-role="list-divider" role="heading">French Cities</li>
+				  <li>
+				    <a href="#page3" data-transition="slide">
+				      <h3>Monaco</h3>
+				      <p><strong>Principality of Monaco</strong></p>
+				      <p>Monaco is a sovereign city-state, and forms part of the French Riviera. Bordered on three sides by France, the other by the Mediterranean....</p>
+				      <p class="ui-li-aside"><strong>1</strong> image</p>
+				    </a>
+				  </li>
+				  <li>
+				    <a href="#">
+				      <h3>Nice</h3>
+				      <p>Located in the south of France, close to the border with Italy, Nice is part of the famous French Riviera...</p>
+				    </a>
+				  </li>
+                    <li>
+				    <a href="#page4" data-transition="pop">
+				      <h3>Cannes</h3>
+				      <p>Located in the French Riviera, Cannes is the location of the international Cannes Film Festival...</p>
+				    </a>
+				  </li>
+				</ul>
+
+		</div>
+		</div><!-- /content -->
+	</div><!-- /home -->
+
+
+	<!-- PetProfile -->
+	<div data-role="page" id="PetProfile">
+		<div data-role="header">
+	    <h3>Pet Profile</h3><!--insert pet name>
+		</div><!-- /header -->
+  </div>                                                    
+	</div><!-- /PetProfile -->
+
+	<!-- PetSettings -->
+	<div data-role="page" id="PetSettings">
+		<div data-role="header">
+	    <h3>Pet Settings</h3>
+		</div><!-- /header -->
+		<div role="main" class="ui-content">
+			<p><a data-rel="back" class="ui-btn">Return</a></p>
+		</div><!-- /content -->
+	</div><!-- /PetSettings -->  
+            
+    </div><!-- /Settings -->   
+    	<div data-role="page" id="page5">
+		<div data-role="header">
+	    <h3>Settings</h3>
+		</div><!-- /header -->
+		<div role="main" class="ui-content">
+			<p><a data-rel="back" class="ui-btn">Return</a></p>
+		</div><!-- /content -->
+    </div><!-- /Settings --> 
+        
+        </div><!-- /SignUp -->   
+    	<div data-role="page" id="SignUp">
+		<div data-role="header">
+	    <h3>Sign Up</h3>
+		</div><!-- /header -->
+		<div role="main" class="ui-content">
+			<p><a data-rel="back" class="ui-btn">Return</a></p>
+		</div><!-- /content -->
+    </div><!-- /SignUp --> 
     </body>
 </html>
