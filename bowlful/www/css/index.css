@@ -20,6 +20,10 @@
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
+head {
+    text-align: center;
+}
+
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
@@ -48,10 +52,17 @@ body {
 .button {
    background-color:#19A3FF; 
     color: #FFFFFF;
+    width: 100%;
 }
 
 .link {
     color: ##00CC66;
+}
+
+.fieldcontain {
+    color: #FFFFFF;
+    width: 100%;
+    border-color: #FFFFFF;
 }
 
 /* Portrait layout (default) */
@@ -122,3 +133,4 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
