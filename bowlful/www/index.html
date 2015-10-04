@@ -41,19 +41,27 @@
 	    <h3>Bowlful</h3>
 		</div><!-- /header -->
         	  <div role="main" class="ui-content">
-  <div data-role="fieldcontain" class="ui-hide-label">
+  <ul data-role="fieldcontain" class="ui-hide-label">
     <form method="post" >
+        <li>
         <label for="email"></label>
-        <input type="email" name="email" id="email" placeholder="email">
+        <input type="email" name="email" id="email" placeholder="email" data-corners="false"/>
+            </li>
+        <li>
     <label for="password"></label>
-    <input type="password" name="password" id="password" value="" placeholder="password"/>
-      </div>
-      <input type="submit" value="Login" />
-<a href="index.html" data-role="button">Sign Up</a>
+    <input type="password" name="password" id="password" value="" placeholder="password" data-corners="false"/>
+      </li>
+        <li>
+      <input type="submit" value="Login" data-corners="false" />
+            </li>
+        <li>
+<a href="index.html" data-role="button" data-corners="false">Sign Up</a>
+            </li>
     </form>
+      </ul>
   </div> 
                     </div>
-	</div><!-- /login -->
+	<!-- /login -->
         
   <!-- home -->
 	<div data-role="page" id="home">
