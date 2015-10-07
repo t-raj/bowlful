@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <!--
     Licensed to the Apache Software Foundation (ASF) under one
@@ -31,117 +33,118 @@
         <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
         <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
         <script type="text/javascript" src="js/trip.js"></script>
-        <title>Trip Notes</title>
+        <title>Bowlful</title>
     </head>
     <body>
 
-    <!-- login -->
-	<div data-role="page" data-dialog="true" id="login">
+<!-- Welcome Page -->
+
+  <!-- Login Page -->
+  <div data-role="page" data-dialog="true" id="login">
 		<div data-role="header">
 	    <h3>Bowlful</h3>
 		</div><!-- /header -->
-        	  <div role="main" class="ui-content">
-  <ul data-role="fieldcontain" class="ui-hide-label">
-    <form method="post" >
-        <li>
-        <label for="email"></label>
-        <input type="email" name="email" id="email" placeholder="email" data-corners="false"/>
-            </li>
-        <li>
-    <label for="password"></label>
-    <input type="password" name="password" id="password" value="" placeholder="password" data-corners="false"/>
-      </li>
-        <li>
-      <input type="submit" value="Login" data-corners="false" />
-            </li>
-        <li>
-<a href="index.html" data-role="button" data-corners="false">Sign Up</a>
-            </li>
-    </form>
+    <div role="main" class="ui-content">
+      <ul data-role="fieldcontain" class="ui-hide-label">
+        <form method="post" >
+          <li>
+            <label for="email"></label>
+            <input type="email" name="email" id="email" placeholder="email" data-corners="false"/>
+          </li>
+          <li>
+            <label for="password"></label>
+            <input type="password" name="password" id="password" value="" placeholder="password" data-corners="false"/>
+          </li>
+          <li>
+            <input type="submit" value="Login" data-corners="false" />
+          </li>
+          <li>
+            <a href="index.html" data-role="button" data-corners="false">Sign Up</a>
+          </li>
+        </form>
       </ul>
-  </div>
-                    </div>
-	<!-- /login -->
+    </div>
+  </div><!-- /Login Page -->
 
-  <!-- home -->
-	<div data-role="page" id="home">
+  <!-- Signup Page -->
+  <div data-role="page" id="SignUp">
+    <div data-role="header">
+      <h3>Sign Up</h3>
+    </div><!-- /header -->
+    <div role="main" class="ui-content">
+      <p><a data-rel="back" class="ui-btn">Return</a></p>
+    </div><!-- /content -->
+  </div><!-- /SignUp -->
+
+  <!-- Home Page -->
+  <div data-role="page" id="home">
 		<div data-role="header">
 	    <h3>Bowlful</h3>
 		</div><!-- /header -->
 	  <div role="main" class="ui-content">
 			<p><a href="#home" data-transition="slidedown">info</a></p>
-		<!-- listview example -->
-		<div>
-
-				<ul data-role="listview" data-inset="true">
-				  <li data-role="list-divider" role="heading">French Cities</li>
-				  <li>
-				    <a href="#page3" data-transition="slide">
-				      <h3>Monaco</h3>
-				      <p><strong>Principality of Monaco</strong></p>
-				      <p>Monaco is a sovereign city-state, and forms part of the French Riviera. Bordered on three sides by France, the other by the Mediterranean....</p>
-				      <p class="ui-li-aside"><strong>1</strong> image</p>
-				    </a>
-				  </li>
-				  <li>
-				    <a href="#">
-				      <h3>Nice</h3>
-				      <p>Located in the south of France, close to the border with Italy, Nice is part of the famous French Riviera...</p>
-				    </a>
-				  </li>
-                    <li>
-				    <a href="#page4" data-transition="pop">
-				      <h3>Cannes</h3>
-				      <p>Located in the French Riviera, Cannes is the location of the international Cannes Film Festival...</p>
-				    </a>
-				  </li>
-				</ul>
-
-		</div>
+		    <!-- listview example -->
+	    <div>
+			  <ul data-role="listview" data-inset="true">
+			  <li data-role="list-divider" role="heading">French Cities</li>
+			  <li>
+			    <a href="#page3" data-transition="slide">
+			      <h3>Monaco</h3>
+			      <p><strong>Principality of Monaco</strong></p>
+			      <p>Monaco is a sovereign city-state, and forms part of the French Riviera. Bordered on three sides by France, the other by the Mediterranean....</p>
+			      <p class="ui-li-aside"><strong>1</strong> image</p>
+			    </a>
+			  </li>
+			  <li>
+			    <a href="#">
+			      <h3>Nice</h3>
+			      <p>Located in the south of France, close to the border with Italy, Nice is part of the famous French Riviera...</p>
+			    </a>
+			  </li>
+        <li>
+			    <a href="#page4" data-transition="pop">
+			      <h3>Cannes</h3>
+			      <p>Located in the French Riviera, Cannes is the location of the international Cannes Film Festival...</p>
+			    </a>
+			  </li>
+			  </ul>
+	    </div>
 		</div><!-- /content -->
-	</div><!-- /home -->
+	</div><!-- /Home Page -->
+
+  <!-- Extended Actions Page -->
+  <div data-role="page" id="PetProfile">
+    <div data-role="header">
+      <h3>Pet Profile</h3><!--insert pet name -->
+    </div> <!-- /header -->
+    <div role="main" class="ui-content">
+      <p><a data-rel="back" class="ui-btn">Return</a></p>
+    </div>
+  </div><!-- /Extended Actions Page -->
+
+  <!-- Pet Settings Page -->
+  <div data-role="page" id="PetSettings">
+    <div data-role="header">
+      <h3>Pet Settings</h3>
+    </div><!-- /header -->
+    <div role="main" class="ui-content">
+      <p><a data-rel="back" class="ui-btn">Return</a></p> <!-- return to pet profile-->
+    </div><!-- /content -->
+  </div><!-- /PetSettings -->
+
+  <!-- Settings Page -->
+  <div data-role="page" id="page5">
+    <div data-role="header">
+      <h3>Settings</h3>
+    </div><!-- /header -->
+    <div role="main" class="ui-content">
+      <p><a data-rel="back" class="ui-btn">Return</a></p>
+    </div><!-- /content -->
+  </div><!-- /Settings -->
+
+<!-- Invite Page -->
 
 
-	<!-- PetProfile -->
-	<div data-role="page" id="PetProfile">
-		<div data-role="header">
-	    <h3>Pet Profile</h3><!--insert pet name>
-		</div><!-- /header -->
-  </div>
-        		<div role="main" class="ui-content">
-			<p><a data-rel="back" class="ui-btn">Return</a></p>
-		</div>
-	</div><!-- /PetProfile -->
 
-	<!-- PetSettings -->
-	<div data-role="page" id="PetSettings">
-		<div data-role="header">
-	    <h3>Pet Settings</h3>
-		</div><!-- /header -->
-		<div role="main" class="ui-content">
-			<p><a data-rel="back" class="ui-btn">Return</a></p> <!-- return to pet profile-->
-		</div><!-- /content -->
-	</div><!-- /PetSettings -->
-
-    </div><!-- /Settings -->
-    	<div data-role="page" id="page5">
-		<div data-role="header">
-	    <h3>Settings</h3>
-		</div><!-- /header -->
-		<div role="main" class="ui-content">
-			<p><a data-rel="back" class="ui-btn">Return</a></p>
-		</div><!-- /content -->
-    </div><!-- /Settings -->
-
-        </div><!-- /SignUp -->
-    	<div data-role="page" id="SignUp">
-		<div data-role="header">
-	    <h3>Sign Up</h3>
-		</div><!-- /header -->
-		<div role="main" class="ui-content">
-			<p><a data-rel="back" class="ui-btn">Return</a></p>
-		</div><!-- /content -->
-    </div><!-- /SignUp -->
     </body>
 </html>
-

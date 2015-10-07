@@ -16,6 +16,16 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+/* COLORS
+Salmon: FF9C95
+Violet: 9287A8
+Creme: FFE592
+Blue: DAEDF6
+White: FFFFFF
+Black: 000000
+*/
+
+
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
