@@ -41,13 +41,19 @@ body {
 }
 
 .button {
+   background-color:#00CC66;
+    color: #FFFFFF;
+    width: 100%;
+}
+
+.submit {
    background-color:#19A3FF;
     color: #FFFFFF;
     width: 100%;
 }
 
 .link {
-    color: ##00CC66;
+    color: #00CC66;
 }
 
 .fieldcontain {
