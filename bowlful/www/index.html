@@ -56,17 +56,25 @@
             <input type="password" name="password" id="password" value="" placeholder="password" data-corners="false"/>
           </li>
           <li>
-            <input type="submit" value="Login" data-corners="false" />
+            <!-- This is currently creating 3 buttons for each one. -->
+            <a href="#home" data-role="button" data-corners="false">Login<data-transition="pop">
+            <!--
+              <a href="home" data-role="button" data-corners="false">Login</a>
+
+              Submit button javascript for future reference
+              https://api.jquery.com/submit/
+              <input type="submit" value="Login" data-corners="false" />
+            -->
           </li>
           <li>
-            <a href="index.html" data-role="button" data-corners="false">Sign Up</a>
+            <a href="home" data-role="button" data-corners="false">Sign Up<data-transition="pop">
           </li>
         </form>
       </ul>
     </div>
   </div><!-- /Login Page -->
 
-  <!-- Signup Page -->
+  <!-- Sign Up Page -->
   <div data-role="page" id="SignUp">
     <div data-role="header">
       <h3>Sign Up</h3>
