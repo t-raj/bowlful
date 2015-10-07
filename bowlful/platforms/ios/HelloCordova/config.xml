@@ -16,9 +16,9 @@
     </feature>
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
-    <name>HelloCordova</name>
+    <name>Bowlful</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Never forget to feed or care for your pet.
     </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Apache Cordova Team
