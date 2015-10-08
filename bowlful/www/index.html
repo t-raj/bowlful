@@ -46,7 +46,7 @@
 		</div><!-- /header -->
     <div role="main" class="ui-content">
       <ul data-role="fieldcontain" class="ui-hide-label">
-        <form method="post" >
+        <form method="post">
           <li>
             <label for="email"></label>
             <input type="email" name="email" id="email" placeholder="email" data-corners="false"/>
@@ -56,8 +56,7 @@
             <input type="password" name="password" id="password" value="" placeholder="password" data-corners="false"/>
           </li>
           <li>
-            <!-- This is currently creating 3 buttons for each one. -->
-            <a href="#home" data-role="button" data-corners="false">Login<data-transition="pop">
+            <a href="#home" data-role="button" data-corners="false" data-transition="pop">Login</a>
             <!--
               <a href="home" data-role="button" data-corners="false">Login</a>
 
@@ -67,7 +66,7 @@
             -->
           </li>
           <li>
-            <a href="home" data-role="button" data-corners="false">Sign Up<data-transition="pop">
+            <a href="#signup" data-role="button" data-corners="false" data-transition="pop">Sign Up</a>
           </li>
         </form>
       </ul>
@@ -75,13 +74,32 @@
   </div><!-- /Login Page -->
 
   <!-- Sign Up Page -->
-  <div data-role="page" id="SignUp">
+  <div data-role="page" data-dialog="true" id="signup">
     <div data-role="header">
       <h3>Sign Up</h3>
     </div><!-- /header -->
     <div role="main" class="ui-content">
-      <p><a data-rel="back" class="ui-btn">Return</a></p>
-    </div><!-- /content -->
+      <ul data-role="fieldcontain" class="ui-hide-label">
+        <form method="post">
+          <li>
+            <label for="name"></label>
+            <input type="text" name="name" id="name" value="" placeholder="name" data-corners="false"/>
+          </li>
+          <li>
+            <label for="email"></label>
+            <input type="email" name="email" id="email" value="" placeholder="email" data-corners="false"/>
+          </li>
+          <li>
+            <label for="password"></label>
+            <input type="password" name="password" id="password" value="" placeholder="password" data-corners="false"/>
+          </li>
+          <li>
+            <a href="#home" data-role="button" data-corners="false" data-transition="pop">Sign Up</a>
+            <!--Change href to a welcome page for new users.-->
+          </li>
+        </form>
+      </ul>
+    </div><!-- /Content -->
   </div><!-- /SignUp -->
 
   <!-- Home Page -->
@@ -90,29 +108,28 @@
 	    <h3>Bowlful</h3>
 		</div><!-- /header -->
 	  <div role="main" class="ui-content">
-			<p><a href="#home" data-transition="slidedown">info</a></p>
 		    <!-- listview example -->
 	    <div>
 			  <ul data-role="listview" data-inset="true">
-			  <li data-role="list-divider" role="heading">French Cities</li>
+			  <li data-role="list-divider" role="heading">Your Pets</li>
 			  <li>
-			    <a href="#page3" data-transition="slide">
-			      <h3>Monaco</h3>
-			      <p><strong>Principality of Monaco</strong></p>
-			      <p>Monaco is a sovereign city-state, and forms part of the French Riviera. Bordered on three sides by France, the other by the Mediterranean....</p>
+			    <a href="#actions" data-transition="slide">
+			      <h3>Spot</h3>
+			      <p><strong>Last fed: 9:01pm yesterday.</strong></p>
+			      <p>No issues.</p>
 			      <p class="ui-li-aside"><strong>1</strong> image</p>
 			    </a>
 			  </li>
 			  <li>
-			    <a href="#">
-			      <h3>Nice</h3>
-			      <p>Located in the south of France, close to the border with Italy, Nice is part of the famous French Riviera...</p>
+			    <a href="#actions" data-transition="slide">
+			      <h3>Arbys</h3>
+			      <p>Missed meds!</p>
 			    </a>
 			  </li>
         <li>
-			    <a href="#page4" data-transition="pop">
-			      <h3>Cannes</h3>
-			      <p>Located in the French Riviera, Cannes is the location of the international Cannes Film Festival...</p>
+			    <a href="#actions" data-transition="slide">
+			      <h3>Dr. Animal Pet</h3>
+			      <p><strong>Last fed: 9:34am today.</strong></p>
 			    </a>
 			  </li>
 			  </ul>
@@ -121,7 +138,7 @@
 	</div><!-- /Home Page -->
 
   <!-- Extended Actions Page -->
-  <div data-role="page" id="PetProfile">
+  <div data-role="page" id="actions">
     <div data-role="header">
       <h3>Pet Profile</h3><!--insert pet name -->
     </div> <!-- /header -->
@@ -131,7 +148,7 @@
   </div><!-- /Extended Actions Page -->
 
   <!-- Pet Settings Page -->
-  <div data-role="page" id="PetSettings">
+  <div data-role="page" id="petsettings">
     <div data-role="header">
       <h3>Pet Settings</h3>
     </div><!-- /header -->
@@ -141,7 +158,7 @@
   </div><!-- /PetSettings -->
 
   <!-- Settings Page -->
-  <div data-role="page" id="page5">
+  <div data-role="page" id="settings">
     <div data-role="header">
       <h3>Settings</h3>
     </div><!-- /header -->
