@@ -168,11 +168,48 @@
   <!-- Pet Settings Page -->
   <div data-role="page" id="petsettings">
     <div data-role="header">
-              <p><p><a href="#actions" data-transition="slide">Back</a><!-- return to pet profile-->
+      <p><p><a href="#actions" data-transition="slide">Back</a><!-- return to pet profile-->
       <h3>Pet Settings</h3>
     </div><!-- /header -->
     <div role="main" class="ui-content">
+      <h1>Name</h1>
+      <!--http://demos.jquerymobile.com/1.4.5/flipswitch/#&ui-state=dialog-->
+      <form>
+        <label for="flip-checkbox">Feed:</label>
+        <input type="checkbox" data-role="flipswitch" name="flip-checkbox" id="flip-checkbox" checked="">
+      </form>
+      <form>
+        <label for="flip-select">Meds:</label>
+        <select id="flip-select" name="flip-select" data-role="flipswitch">
+          <option>Off</option>
+          <option>On</option>
+        </select>
+      </form>
+      <form>
+        <label for="flip-select">Meds 2:</label>
+        <select id="flip-select" name="flip-select" data-role="flipswitch">
+          <option>Off</option>
+          <option>On</option>
+        </select>
+      </form>
+      <form>
+        <label for="flip-select">Walk:</label>
+        <select id="flip-select" name="flip-select" data-role="flipswitch">
+          <option>Off</option>
+          <option>On</option>
+        </select>
+      </form>
+      <form>
+        <label for="flip-select">Bath:</label>
+        <select id="flip-select" name="flip-select" data-role="flipswitch">
+          <option>Off</option>
+          <option>On</option>
+        </select>
+      </form>
     </div><!-- /content -->
+    <div>
+      <a href="#" class="ui-btn ui-btn-inline ui-icon-plus ui-btn-icon-left">Create new task...</a>
+    </div>
   </div><!-- /PetSettings -->
 
   <!-- Settings Page -->
