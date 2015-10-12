@@ -45,7 +45,14 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-    }
+    } 
+    
 };
+
+document.getElementById("addPet").addEventListener(tap, addPet);
+
+function addPet() {
+    addPet.bind(
+}
 
 app.initialize();
