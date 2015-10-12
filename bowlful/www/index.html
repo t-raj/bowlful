@@ -21,6 +21,7 @@
 -->
 <html>
     <head>
+        <meta charset="utf-8">
         <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
@@ -37,7 +38,7 @@
     </head>
     <body>
 
-<!-- Welcome Page -->
+
 
   <!-- Login Page -->
   <div data-role="page" data-dialog="true" id="login">
@@ -56,7 +57,7 @@
             <input type="password" name="password" id="password" value="" placeholder="password" data-corners="false"/>
           </li>
           <li>
-            <a href="#home" data-role="button" data-corners="false" data-transition="pop">Login</a>
+            <a href="#home" data-role="button" data-corners="false" data-transition="slide">Login</a>
             <!--
               <a href="home" data-role="button" data-corners="false">Login</a>
 
@@ -66,7 +67,7 @@
             -->
           </li>
           <li>
-            <a href="#signup" data-role="button" data-corners="false" data-transition="pop">Sign Up</a>
+            <a href="#signup" data-role="button" data-corners="false" data-transition="slide">Sign Up</a>
           </li>
         </form>
       </ul>
@@ -94,7 +95,7 @@
             <input type="password" name="password" id="password" value="" placeholder="password" data-corners="false"/>
           </li>
           <li>
-            <a href="#home" data-role="button" data-corners="false" data-transition="pop">Sign Up</a>
+            <a href="#home" data-role="button" data-corners="false" data-transition="slide">Sign Up</a>
             <!--Change href to a welcome page for new users.-->
           </li>
         </form>
@@ -105,7 +106,9 @@
   <!-- Home Page -->
   <div data-role="page" id="home">
 		<div data-role="header">
+                                     <a data-role="close" data-corners="false" data-transition="slide" data-icon="gear"></a>
 	    <h3>Bowlful</h3>
+                         <a href="#settings" data-role="button" data-corners="false" data-transition="slide" data-icon="plus"></a>
 		</div><!-- /header -->
 	  <div role="main" class="ui-content">
 		    <!-- listview example -->
@@ -131,6 +134,12 @@
 			      <p><strong>Last fed: 9:34am today.</strong></p>
 			    </a>
 			  </li>
+        <li>
+			    <a href="#actions" data-transition="slide">
+			      <h3>Katherine</h3>
+			      <p><strong>Hungry</strong></p>
+			    </a>
+       </li>
 			  </ul>
 	    </div>
 		</div><!-- /content -->
@@ -139,36 +148,93 @@
   <!-- Extended Actions Page -->
   <div data-role="page" id="actions">
     <div data-role="header">
+                    <a href="#home" data-transition="slide" data-role="button" data-icon="carat-l"></a>
       <h3>Pet Profile</h3><!--insert pet name -->
+             <a href="#petsettings" data-role="button" data-corners="false" data-transition="slide" data-icon="gear"></a>
     </div> <!-- /header -->
     <div role="main" class="ui-content">
-      <p><a data-rel="back" class="ui-btn">Return</a></p>
+            <ul data-role="listview" data-inset="true">
+			  <li data-role="list-divider" role="heading">Tasks</li>
+			  <li>
+			    <a href="#actions" data-transition="slide">
+			      <h3>Feed</h3>
+			      <p><strong>Last fed: 9:01pm yesterday.</strong></p>
+			      <p>No issues.</p>
+			    </a>
+			  </li>
+			  <li>
+			    <a href="#actions" data-transition="slide">
+			      <h3>Meds</h3>
+			      <p>Missed meds!</p>
+			    </a>
+			  </li>
+			  </ul> <!--add more fields to the ul based on pet's needs-->
     </div>
   </div><!-- /Extended Actions Page -->
 
   <!-- Pet Settings Page -->
   <div data-role="page" id="petsettings">
     <div data-role="header">
+      <a href="#actions" data-transition="slide" data-role="button" data-icon="carat-l"></a><!-- return to pet profile-->
       <h3>Pet Settings</h3>
     </div><!-- /header -->
     <div role="main" class="ui-content">
-      <p><a data-rel="back" class="ui-btn">Return</a></p> <!-- return to pet profile-->
+      <h1>Name</h1>
+      <!--http://demos.jquerymobile.com/1.4.5/flipswitch/#&ui-state=dialog-->
+      <form>
+        <label for="flip-checkbox">Feed:</label>
+        <input type="checkbox" data-role="flipswitch" name="flip-checkbox" id="flip-checkbox" checked="">
+      </form>
+      <form>
+        <label for="flip-select">Meds:</label>
+        <select id="flip-select" name="flip-select" data-role="flipswitch">
+          <option>Off</option>
+          <option>On</option>
+        </select>
+      </form>
+      <form>
+        <label for="flip-select">Meds 2:</label>
+        <select id="flip-select" name="flip-select" data-role="flipswitch">
+          <option>Off</option>
+          <option>On</option>
+        </select>
+      </form>
+      <form>
+        <label for="flip-select">Walk:</label>
+        <select id="flip-select" name="flip-select" data-role="flipswitch">
+          <option>Off</option>
+          <option>On</option>
+        </select>
+      </form>
+      <form>
+        <label for="flip-select">Bath:</label>
+        <select id="flip-select" name="flip-select" data-role="flipswitch">
+          <option>Off</option>
+          <option>On</option>
+        </select>
+      </form>
     </div><!-- /content -->
+    <div>
+      <a href="#" class="ui-btn ui-btn-inline ui-icon-plus ui-btn-icon-left">Create new task...</a>
+    </div>
   </div><!-- /PetSettings -->
 
   <!-- Settings Page -->
   <div data-role="page" id="settings">
     <div data-role="header">
+              <p><a href="#home" data-transition="slide" data-role="button" data-icon="carat-l"></a></p>
       <h3>Settings</h3>
     </div><!-- /header -->
     <div role="main" class="ui-content">
-      <p><a data-rel="back" class="ui-btn">Return</a></p>
+
     </div><!-- /content -->
   </div><!-- /Settings -->
 
-<!-- Invite Page -->
 
 
 
     </body>
+    <script src="index.js"></script>
+    <script src="jquery.mobile-1.4.5.min.js.js"></script>
+    <script src="jquery-2.1.4.min.js"></script>
 </html>
