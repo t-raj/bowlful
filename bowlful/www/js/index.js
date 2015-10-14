@@ -50,9 +50,13 @@ var app = {
 };
 
 document.getElementById("addPet").addEventListener(tap, addPet);
+var myPets = document.getElementById("pets");
 
 function addPet() {
-    addPet.bind(
+    myPets.appendChild();
+    var newPet = Document.createElement("LI");
+    
+    newPet.
 }
 
 app.initialize();
