@@ -49,14 +49,16 @@ var app = {
     
 };
 
-document.getElementById("addPet").addEventListener(tap, addPet);
-var myPets = document.getElementById("pets");
+$document.getElementById("submitPet").addEventListener(tap, submitPet);
+var myPets = $document.getElementById("pets");
 
 function addPet() {
-    myPets.appendChild();
-    var newPet = Document.createElement("LI");
+    var newPet = $document.createElement("LI");
+    newPet.setAttribute("class","pet");
     
-    newPet.
+    myPets.appendChild(newPet);
+    
+    newPet."name"="yodle"
 }
 
 app.initialize();

@@ -224,13 +224,14 @@
   </div><!-- /Settings -->
 
           <!-- Add Pet Popup -->
-  <div data-role="popup" data-dialog="true" id="addPetPopup">
+  <div data-role="page" data-dialog="true" id="addPetPopup">
         <form method="post">
           <li>
             <input type="text" name="petName" id="petName" placeholder="pet name" data-corners="false"/>
           </li>
           <li>
-            <a data-role="button" data-corners="false" >Submit</a>
+            <a data-role="button" data-corners="false" id="submitPet">Submit</a>
+              <a href="#home" data-role="button" data-corners="false" >nargh</a>
             <!--
               <a href="home" data-role="button" data-corners="false">Login</a>
 
