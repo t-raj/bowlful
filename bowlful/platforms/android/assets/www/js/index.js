@@ -45,7 +45,20 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-    }
+    } 
+    
 };
+
+$document.getElementById("submitPet").addEventListener(tap, submitPet);
+var myPets = $document.getElementById("pets");
+
+function addPet() {
+    var newPet = $document.createElement("LI");
+    newPet.setAttribute("class","pet");
+    
+    myPets.appendChild(newPet);
+    
+    newPet."name"="yodle"
+}
 
 app.initialize();

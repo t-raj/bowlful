@@ -26,11 +26,13 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" href="css/themes/my-custom-theme.css" />
-        <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
-        <link rel="stylesheet" type="text/css" href="css/index.css">
+
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type = "text/css" href="css/Bowlful.min.css" />
+
+
+        
+
         <!-- temporarily moved to head whilst we develop app...-->
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
@@ -108,9 +110,9 @@
   <!-- Home Page -->
   <div data-role="page" id="home">
 		<div data-role="header">
-                                     <a href="#settings" data-role="button" data-corners="false" data-transition="slide" data-icon="gear"></a>
+      <a href="#settings" class = "ui-btn ui-shadow ui-corner-all  ui-icon-bars ui-btn-icon-notext" data-transition="slide" ></a>
 	    <h3>Bowlful</h3>
-                         <a href="#addPetPopup" data-role="button" id = "addPet" data-corners="false" data-transition="slide" data-icon="plus"></a>
+      <a href="#addPetPopup" class = "ui-btn ui-shadow ui-corner-all  ui-icon-plus ui-btn-icon-notext" data-transition="slide" ></a>
 		</div><!-- /header -->
 	  <div role="main" class="ui-content">
 		    <!-- listview example -->
@@ -143,9 +145,9 @@
   <!-- Extended Actions Page -->
   <div data-role="page" id="actions">
     <div data-role="header">
-                    <a href="#home" data-rel="back" data-role="button" data-icon="carat-l"></a>
+                    <a href="#home" data-rel="back" class = "ui-btn ui-shadow ui-corner-all  ui-icon-carat-l ui-btn-icon-notext"></a>
       <h3>Pet Profile</h3><!--insert pet name -->
-             <a href="#settings" data-role="button" data-corners="false" data-transition="slide" data-icon="gear"></a>
+             <a href="#petsettings" class = "ui-btn ui-shadow ui-corner-all ui-icon-gear ui-btn-icon-notext" data-transition="slide"></a>
     </div> <!-- /header -->
     <div role="main" class="ui-content">
             <ul data-role="listview" data-inset="true">
@@ -170,7 +172,7 @@
   <!-- Pet Settings Page -->
   <div data-role="page" id="petsettings">
     <div data-role="header">
-      <a href="#actions" data-rel="back" data-role="button" data-icon="carat-l"></a><!-- return to pet profile-->
+      <a href="#actions" data-rel="back" class = "ui-btn ui-shadow ui-corner-all ui-icon-carat-l ui-btn-icon-notext" data-transition="slide" ></a><!-- return to pet profile-->
       <h3>Pet Settings</h3>
     </div><!-- /header -->
     <div role="main" class="ui-content">
@@ -217,7 +219,7 @@
   <!-- Settings Page -->
   <div data-role="page" id="settings">
     <div data-role="header">
-              <p><a href="#home" data-transition="slide" data-role="button" data-icon="carat-l"></a></p>
+              <p><a href="#home" class = "ui-btn ui-shadow ui-corner-all ui-icon-carat-l ui-btn-icon-notext" data-transition="slide" ></a></p>
       <h3>Settings</h3>
     </div><!-- /header -->
     <div role="main" class="ui-content">

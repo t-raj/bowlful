@@ -21,13 +21,18 @@
 -->
 <html>
     <head>
+        <meta charset="utf-8">
         <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
+
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type = "text/css" href="css/Bowlful.min.css" />
+
+
+        
+
         <!-- temporarily moved to head whilst we develop app...-->
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
@@ -37,7 +42,7 @@
     </head>
     <body>
 
-<!-- Welcome Page -->
+
 
   <!-- Login Page -->
   <div data-role="page" data-dialog="true" id="login">
@@ -46,7 +51,7 @@
 		</div><!-- /header -->
     <div role="main" class="ui-content">
       <ul data-role="fieldcontain" class="ui-hide-label">
-        <form method="post" >
+        <form method="post">
           <li>
             <label for="email"></label>
             <input type="email" name="email" id="email" placeholder="email" data-corners="false"/>
@@ -56,8 +61,7 @@
             <input type="password" name="password" id="password" value="" placeholder="password" data-corners="false"/>
           </li>
           <li>
-            <!-- This is currently creating 3 buttons for each one. -->
-            <a href="#home" data-role="button" data-corners="false">Login<data-transition="pop">
+            <a href="#home" data-role="button" data-corners="false" data-transition="slide">Login</a>
             <!--
               <a href="home" data-role="button" data-corners="false">Login</a>
 
@@ -67,7 +71,7 @@
             -->
           </li>
           <li>
-            <a href="home" data-role="button" data-corners="false">Sign Up<data-transition="pop">
+            <a href="#signup" data-role="button" data-corners="false" data-transition="slide">Sign Up</a>
           </li>
         </form>
       </ul>
@@ -75,44 +79,62 @@
   </div><!-- /Login Page -->
 
   <!-- Sign Up Page -->
-  <div data-role="page" id="SignUp">
+  <div data-role="page" data-dialog="true" id="signup">
     <div data-role="header">
       <h3>Sign Up</h3>
     </div><!-- /header -->
     <div role="main" class="ui-content">
-      <p><a data-rel="back" class="ui-btn">Return</a></p>
-    </div><!-- /content -->
+      <ul data-role="fieldcontain" class="ui-hide-label">
+        <form method="post">
+          <li>
+            <label for="name"></label>
+            <input type="text" name="name" id="name" value="" placeholder="name" data-corners="false"/>
+          </li>
+          <li>
+            <label for="email"></label>
+            <input type="email" name="email" id="email" value="" placeholder="email" data-corners="false"/>
+          </li>
+          <li>
+            <label for="password"></label>
+            <input type="password" name="password" id="password" value="" placeholder="password" data-corners="false"/>
+          </li>
+          <li>
+            <a href="#home" data-role="button" data-corners="false" data-transition="slide">Sign Up</a>
+            <!--Change href to a welcome page for new users.-->
+          </li>
+        </form>
+      </ul>
+    </div><!-- /Content -->
   </div><!-- /SignUp -->
 
   <!-- Home Page -->
   <div data-role="page" id="home">
 		<div data-role="header">
+      <a href="#settings" class = "ui-btn ui-shadow ui-corner-all  ui-icon-bars ui-btn-icon-notext" data-transition="slide" ></a>
 	    <h3>Bowlful</h3>
+      <a href="#addPetPopup" class = "ui-btn ui-shadow ui-corner-all  ui-icon-plus ui-btn-icon-notext" data-transition="slide" ></a>
 		</div><!-- /header -->
 	  <div role="main" class="ui-content">
-			<p><a href="#home" data-transition="slidedown">info</a></p>
 		    <!-- listview example -->
 	    <div>
-			  <ul data-role="listview" data-inset="true">
-			  <li data-role="list-divider" role="heading">French Cities</li>
-			  <li>
-			    <a href="#page3" data-transition="slide">
-			      <h3>Monaco</h3>
-			      <p><strong>Principality of Monaco</strong></p>
-			      <p>Monaco is a sovereign city-state, and forms part of the French Riviera. Bordered on three sides by France, the other by the Mediterranean....</p>
-			      <p class="ui-li-aside"><strong>1</strong> image</p>
+			  <ul data-role="listview" data-inset="true" id="pets">
+			  <li data-role="list-divider" role="heading" >Your Pets</li>
+			  <li class="pet" id="Spot">
+			    <a href="#actions" data-transition="slide">
+			      <h3>Spot</h3>
+			      <p class="status" id="Spot status">Last fed: 9:01pm yesterday.</p>
 			    </a>
 			  </li>
-			  <li>
-			    <a href="#">
-			      <h3>Nice</h3>
-			      <p>Located in the south of France, close to the border with Italy, Nice is part of the famous French Riviera...</p>
+			  <li class="pet" id="Arbys">
+			    <a href="#actions" data-transition="slide">
+			      <h3>Arbys</h3>
+			      <p class="status" id="Arbys status">Missed meds!</p>
 			    </a>
 			  </li>
-        <li>
-			    <a href="#page4" data-transition="pop">
-			      <h3>Cannes</h3>
-			      <p>Located in the French Riviera, Cannes is the location of the international Cannes Film Festival...</p>
+        <li class="pet" id="Dr. Animal Pet">
+			    <a href="#actions" data-transition="slide">
+			      <h3>Dr. Animal Pet</h3>
+			      <p class="status" id="Dr. Animal Pet status">Last fed: 9:34am today.</p>
 			    </a>
 			  </li>
 			  </ul>
@@ -121,38 +143,115 @@
 	</div><!-- /Home Page -->
 
   <!-- Extended Actions Page -->
-  <div data-role="page" id="PetProfile">
+  <div data-role="page" id="actions">
     <div data-role="header">
+                    <a href="#home" data-rel="back" class = "ui-btn ui-shadow ui-corner-all  ui-icon-carat-l ui-btn-icon-notext"></a>
       <h3>Pet Profile</h3><!--insert pet name -->
+             <a href="#petsettings" class = "ui-btn ui-shadow ui-corner-all ui-icon-gear ui-btn-icon-notext" data-transition="slide"></a>
     </div> <!-- /header -->
     <div role="main" class="ui-content">
-      <p><a data-rel="back" class="ui-btn">Return</a></p>
+            <ul data-role="listview" data-inset="true">
+			  <li data-role="list-divider" role="heading">Tasks</li>
+			  <li>
+			    <a href="#actions" data-transition="slide">
+			      <h3>Feed</h3>
+			      <p><strong>Last fed: 9:01pm yesterday.</strong></p>
+			      <p>No issues.</p>
+			    </a>
+			  </li>
+			  <li>
+			    <a href="#actions" data-transition="slide">
+			      <h3>Meds</h3>
+			      <p>Missed meds!</p>
+			    </a>
+			  </li>
+			  </ul> <!--add more fields to the ul based on pet's needs-->
     </div>
   </div><!-- /Extended Actions Page -->
 
   <!-- Pet Settings Page -->
-  <div data-role="page" id="PetSettings">
+  <div data-role="page" id="petsettings">
     <div data-role="header">
+      <a href="#actions" data-rel="back" class = "ui-btn ui-shadow ui-corner-all ui-icon-carat-l ui-btn-icon-notext" data-transition="slide" ></a><!-- return to pet profile-->
       <h3>Pet Settings</h3>
     </div><!-- /header -->
     <div role="main" class="ui-content">
-      <p><a data-rel="back" class="ui-btn">Return</a></p> <!-- return to pet profile-->
+      <h1>Name</h1>
+      <!--http://demos.jquerymobile.com/1.4.5/flipswitch/#&ui-state=dialog-->
+      <form>
+        <label for="flip-checkbox">Feed:</label>
+        <input type="checkbox" data-role="flipswitch" name="flip-checkbox" id="flip-checkbox" checked="">
+      </form>
+      <form>
+        <label for="flip-select">Meds:</label>
+        <select id="flip-select" name="flip-select" data-role="flipswitch">
+          <option>Off</option>
+          <option>On</option>
+        </select>
+      </form>
+      <form>
+        <label for="flip-select">Meds 2:</label>
+        <select id="flip-select" name="flip-select" data-role="flipswitch">
+          <option>Off</option>
+          <option>On</option>
+        </select>
+      </form>
+      <form>
+        <label for="flip-select">Walk:</label>
+        <select id="flip-select" name="flip-select" data-role="flipswitch">
+          <option>Off</option>
+          <option>On</option>
+        </select>
+      </form>
+      <form>
+        <label for="flip-select">Bath:</label>
+        <select id="flip-select" name="flip-select" data-role="flipswitch">
+          <option>Off</option>
+          <option>On</option>
+        </select>
+      </form>
     </div><!-- /content -->
+    <div>
+      <a href="#" class="ui-btn ui-btn-inline ui-icon-plus ui-btn-icon-left">Create new task...</a>
+    </div>
   </div><!-- /PetSettings -->
 
   <!-- Settings Page -->
-  <div data-role="page" id="page5">
+  <div data-role="page" id="settings">
     <div data-role="header">
+              <p><a href="#home" class = "ui-btn ui-shadow ui-corner-all ui-icon-carat-l ui-btn-icon-notext" data-transition="slide" ></a></p>
       <h3>Settings</h3>
     </div><!-- /header -->
     <div role="main" class="ui-content">
-      <p><a data-rel="back" class="ui-btn">Return</a></p>
+
     </div><!-- /content -->
   </div><!-- /Settings -->
 
-<!-- Invite Page -->
+          <!-- Add Pet Popup -->
+  <div data-role="page" data-dialog="true" id="addPetPopup">
+        <form method="post">
+          <li>
+            <input type="text" name="petName" id="petName" placeholder="pet name" data-corners="false"/>
+          </li>
+          <li>
+            <a data-role="button" data-corners="false" id="submitPet">Submit</a>
+              <a href="#home" data-role="button" data-corners="false" >nargh</a>
+            <!--
+              <a href="home" data-role="button" data-corners="false">Login</a>
+
+              Submit button javascript for future reference
+              https://api.jquery.com/submit/
+              <input type="submit" value="Login" data-corners="false" />
+            -->
+          </li>
+        </form>
+    </div><!-- /Add Pet Popup -->
+
 
 
 
     </body>
+    <script src="index.js"></script>
+    <script src="jquery.mobile-1.4.5.min.js.js"></script>
+    <script src="jquery-2.1.4.min.js"></script>
 </html>
