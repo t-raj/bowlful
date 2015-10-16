@@ -106,40 +106,33 @@
   <!-- Home Page -->
   <div data-role="page" id="home">
 		<div data-role="header">
-                                     <a data-role="close" data-corners="false" data-transition="slide" data-icon="gear"></a>
+                                     <a href="#settings" data-role="button" data-corners="false" data-transition="slide" data-icon="gear"></a>
 	    <h3>Bowlful</h3>
-                         <a href="#settings" data-role="button" data-corners="false" data-transition="slide" data-icon="plus"></a>
+                         <a href="#addPetPopup" data-role="button" id = "addPet" data-corners="false" data-transition="slide" data-icon="plus"></a>
 		</div><!-- /header -->
 	  <div role="main" class="ui-content">
 		    <!-- listview example -->
 	    <div>
-			  <ul data-role="listview" data-inset="true">
-			  <li data-role="list-divider" role="heading">Your Pets</li>
-			  <li>
+			  <ul data-role="listview" data-inset="true" id="pets">
+			  <li data-role="list-divider" role="heading" >Your Pets</li>
+			  <li class="pet" id="Spot">
 			    <a href="#actions" data-transition="slide">
 			      <h3>Spot</h3>
-			      <p><strong>Last fed: 9:01pm yesterday.</strong></p>
-			      <p>No issues.</p>
+			      <p class="status" id="Spot status">Last fed: 9:01pm yesterday.</p>
 			    </a>
 			  </li>
-			  <li>
+			  <li class="pet" id="Arbys">
 			    <a href="#actions" data-transition="slide">
 			      <h3>Arbys</h3>
-			      <p>Missed meds!</p>
+			      <p class="status" id="Arbys status">Missed meds!</p>
 			    </a>
 			  </li>
-        <li>
+        <li class="pet" id="Dr. Animal Pet">
 			    <a href="#actions" data-transition="slide">
 			      <h3>Dr. Animal Pet</h3>
-			      <p><strong>Last fed: 9:34am today.</strong></p>
+			      <p class="status" id="Dr. Animal Pet status">Last fed: 9:34am today.</p>
 			    </a>
 			  </li>
-        <li>
-			    <a href="#actions" data-transition="slide">
-			      <h3>Katherine</h3>
-			      <p><strong>Hungry</strong></p>
-			    </a>
-       </li>
 			  </ul>
 	    </div>
 		</div><!-- /content -->
@@ -148,9 +141,9 @@
   <!-- Extended Actions Page -->
   <div data-role="page" id="actions">
     <div data-role="header">
-                    <a href="#home" data-transition="slide" data-role="button" data-icon="carat-l"></a>
+                    <a href="#home" data-rel="back" data-role="button" data-icon="carat-l"></a>
       <h3>Pet Profile</h3><!--insert pet name -->
-             <a href="#petsettings" data-role="button" data-corners="false" data-transition="slide" data-icon="gear"></a>
+             <a href="#settings" data-role="button" data-corners="false" data-transition="slide" data-icon="gear"></a>
     </div> <!-- /header -->
     <div role="main" class="ui-content">
             <ul data-role="listview" data-inset="true">
@@ -175,7 +168,7 @@
   <!-- Pet Settings Page -->
   <div data-role="page" id="petsettings">
     <div data-role="header">
-      <a href="#actions" data-transition="slide" data-role="button" data-icon="carat-l"></a><!-- return to pet profile-->
+      <a href="#actions" data-rel="back" data-role="button" data-icon="carat-l"></a><!-- return to pet profile-->
       <h3>Pet Settings</h3>
     </div><!-- /header -->
     <div role="main" class="ui-content">
@@ -229,6 +222,26 @@
 
     </div><!-- /content -->
   </div><!-- /Settings -->
+
+          <!-- Add Pet Popup -->
+  <div data-role="page" data-dialog="true" id="addPetPopup">
+        <form method="post">
+          <li>
+            <input type="text" name="petName" id="petName" placeholder="pet name" data-corners="false"/>
+          </li>
+          <li>
+            <a data-role="button" data-corners="false" id="submitPet">Submit</a>
+              <a href="#home" data-role="button" data-corners="false" >nargh</a>
+            <!--
+              <a href="home" data-role="button" data-corners="false">Login</a>
+
+              Submit button javascript for future reference
+              https://api.jquery.com/submit/
+              <input type="submit" value="Login" data-corners="false" />
+            -->
+          </li>
+        </form>
+    </div><!-- /Add Pet Popup -->
 
 
 
