@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/angular-local-storage/dist/angular-local-storage.js"></script>
+
+
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <script src="lib/angular-messages/angular-messages.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers/addPhoto.js"></script>
+    <script src="js/services.js"></script>
+  </head>
+
+  <body ng-app="bowlful" ng-controller="main" ng-init="getPets()">
+
+    <ion-pane>
+
+      <!-- Homescreen with side menu -->
+      <ion-side-menus>
+
+        <!-- Homescreen content -->
+        <ion-side-menu-content
+          edge-drag-threshold="true"
+          drag-content="true">
+
+          <!-- Homecreen header -->
+          <ion-header-bar class="bar-dark">
+
+            <!-- Settings left side menu button-->
+            <button class="button button-icon icon ion-navicon" ng-click="toggleLeftSideMenu()"></button>
+
+              <h1 class="title">Bowlful</h1>
+
+              <!-- New Pet button-->
+              <button class="button button-icon" ng-click="openNewPetModal()">
+                  <i class="icon ion-compose"></i>
+              </button>
+
+          </ion-header-bar>
+          <!-- /Homescreen header -->
+
+          <!-- Homescreen body -->
+          <ion-content>
+            <ion-list can-swipe="true">
+              <ion-item class="item item-avatar" ng-repeat="pet in pets track by $index" ng-click="petDialog($index)">
+                <img ng-src="{{pet.img}}">
+                <h2 ng-bind="pet.name"></h2>
+                <p>
+                  <span ng-bind="pet.kind.text + '  '"></span>
+                    –  Last fed:
+                  <span ng-if="pet.feedLog.length > 0" ng-bind="pet.feedLog[pet.feedLog.length - 1] | date:'h:mma'"></span>
+                  <span ng-if="pet.feedLog.length <= 0">Never<span>
+                </p>
+                <ion-option-button class="button-assertive icon ion-trash-a" ng-click="removePet($index)"></ion-option-button>
+                <ion-option-button class="button-energized icon ion-gear-a" ng-click="openEditPetModal($index)"></ion-option-button>
+                <ion-option-button class="button-balanced icon ion-pizza" ng-click="feedPet($index)"></ion-option-button>
+              </ion-item>
+            </ion-list>
+
+          </ion-content>
+          <!-- /Homescreen body -->
+
+        </ion-side-menu-content>
+        <!-- /Homescreen content -->
+
+        <!-- Settings left side menu body -->
+        <ion-side-menu side="left">
+          <ion-list>
+            <ion-item menu-close ng-click="clearStorage()">
+              Clear Storage
+            </ion-item>
+            <ion-item menu-close>
+              Manage Pets
+            </ion-item>
+          </ion-list>
+        </ion-side-menu>
+      </ion-side-menus>
+      <!-- /Settings left side menu body -->
+
+    </ion-pane>
+
+    <!-- Modal dialog for adding new pets. -->
+    <script id="new-pet-modal.html" type="text/ng-template">
+      <ion-modal-view>
+          <ion-header-bar class="bar-dark">
+              <h1 class="title">Add a new pet</h1>
+              <button class="button button-icon" ng-click="closeNewPetModal()">
+                  <i class="icon ion-android-close"></i>
+              </button>
+          </ion-header-bar>
+          <ion-content>
+              <form name="petInfo" ng-submit="createPet()" novalidate>
+                  <div class="list list-inset">
+                      <label class="item item-input">
+                          <input ng-model="pet.name" type="text" placeholder="Pet name" required />
+                      </label>
+                      <ul class="list">
+                          <li class="item item-toggle">
+                              Fed recently?
+                              <label class="toggle toggle-balanced">
+                                  <input type="checkbox" ng-model="pet.feedStatus"
+                                    ng-true-value="0" ng-false-value="3">
+                                  <div class="track">
+                                      <div class="handle"></div>
+                                  </div>
+                                </input>
+                              </label>
+                          </li>
+                      </ul>
+                      <div class="list">
+
+                        <label class="item item-input item-select">
+                          <div class="input-label">
+                            Animal
+                          </div>
+                          <select name='Animal' ng-model="pet.kind.text" ng-options="item.text for item in newPetOptions.kind">
+                            <option value="">Choose a pet type</option>
+                          </select>
+
+                        </label>
+
+                        <button type="button" class="button button-block button-stable" ng-click="photoActionSheet()">Add Photo</button>
+
+                      </div>
+
+                      <button type="submit" class="button button-block button-positive" ng-disabled="petInfo.$invalid">Add Pet</button>
+                  </div>
+                  <script id="templates/form-errors.html" type="text/ng-template">
+                    <div class="form-error" ng-message="required">This field is required.</div>
+                    <div class="form-error" ng-message="minlength">This field is must be at least 5 characters.</div>
+                    <div class="form-error" ng-message="maxlength">This field is must be less than 50 characters</div>
+                  </script>
+              </form>
+
+          </ion-content>
+
+      </ion-modal-view>
+
+
+    </script>
+
+    <!-- Modal dialog for editing pets. -->
+    <script id="edit-pet-modal.html" type="text/ng-template">
+      <ion-modal-view>
+          <ion-header-bar class="bar-dark">
+              <h1 class="title">Edit Pet</h1>
+              <button class="button button-icon" ng-click="closeEditPetModal()">
+                  <i class="icon ion-android-close"></i>
+              </button>
+          </ion-header-bar>
+          <ion-content>
+            <ion-item class="item item-avatar">
+              <img ng-src="{{pet.img}}">
+              <h2 ng-bind="pet.name"></h2>
+              <p>
+                <span ng-bind="pet.kind.text + '  '"></span>
+                  –  Last fed:
+                  <span ng-if="pet.feedLog.length > 0" ng-bind="pet.feedLog[pet.feedLog.length - 1] | date:'h:mma'"></span>
+                  <span ng-if="pet.feedLog.length <= 0">Never<span>
+              </p>
+            </ion-item>
+              <form name="editPetInfo" ng-submit="editPet($index)" novalidate>
+                  <div class="list list-inset">
+                      <label class="item item-input">
+                          <input ng-model="pet.name" type="text" placeholder="Pet name" required />
+                      </label>
+                      <div class="list">
+
+                        <label class="item item-input item-select">
+                          <div class="input-label">
+                            Animal
+                          </div>
+                          <select name='Animal' ng-model="pet.kind.text" ng-options="item.text for item in newPetOptions.kind">
+                            <option value="">Choose a pet type</option>
+                          </select>
+
+                        </label>
+
+                        <button type="button" class="button button-block button-stable" ng-click="photoActionSheet()">Add/Change Photo</button>
+                        <button type="button" class="button button-block button-assertive" on-tap="undoFeed($index)">Undo Last Feed</button>
+
+                      </div>
+
+                      <button type="submit" class="button button-block button-positive" ng-disabled="petInfo.$invalid">Save Pet</button>
+                  </div>
+                  <script id="templates/form-errors.html" type="text/ng-template">
+                    <div class="form-error" ng-message="required">This field is required.</div>
+                    <div class="form-error" ng-message="maxlength">This field is must be less than 50 characters</div>
+                  </script>
+              </form>
+
+          </ion-content>
+
+      </ion-modal-view>
+
+
+    </script>
+  </body>
+</html>
